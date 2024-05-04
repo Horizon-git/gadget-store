@@ -1,0 +1,84 @@
+@import "../../utils/main";
+
+.dropdown {
+  position: relative;
+
+  &__text {
+    color: $gray-secondary;
+  }
+
+  &__current {
+    font-family: "Mont", sans-serif;
+    font-weight: 500;
+    line-height: 21px;
+    color: $main-gray;
+  }
+
+  &__list {
+    position: absolute;
+    top: 45px;
+
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px 0;
+
+    list-style: none;
+
+    border: 1px solid $light-gray;
+    background-color: var(--background-color);
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+
+    &--visible {
+      display: flex;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 6px 12px;
+
+    color: $gray-secondary;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 21px;
+    transition: all .3s;
+
+    &:hover {
+      color: $main-gray;
+      background-color: var(--surface);
+    }
+  }
+}
+
+.button--dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--background-color);
+  transition: all .3s;
+
+  border: 1px solid $icons-color;
+
+  :last-child {
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $main-gray;
+    background-color: var(--surface);
+  }
+
+  &-focus {
+    &:focus {
+      border-color: $main-gray;
+
+      :last-child {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

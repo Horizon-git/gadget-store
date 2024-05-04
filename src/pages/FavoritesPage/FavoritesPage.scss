@@ -1,0 +1,18 @@
+@import "../../utils/main";
+
+.favorites {
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    justify-content: center;
+  }
+
+  &__count {
+    color: $gray-secondary;
+  }
+}

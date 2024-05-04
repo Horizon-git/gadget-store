@@ -1,0 +1,32 @@
+@import '../../utils/main';
+
+.menu {
+  display: none;
+  box-sizing: border-box;
+
+  height: 100vh;
+  background-color: var(--background-color);
+  z-index: 12;
+
+  @include onMobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+
+    @include onMobile {
+      margin: 24px 16px 0 16px;
+    }
+
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

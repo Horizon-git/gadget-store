@@ -1,0 +1,365 @@
+@import "../../utils/main";
+
+.details-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+
+  &__title {
+    margin-bottom: 40px;
+    @extend %h1;
+  }
+
+  &__top {
+    display: flex;
+    gap: 75px;
+    margin-bottom: 91px;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include onMobile {
+      gap: 40px;
+      flex-direction: column;
+    }
+  }
+
+  &__images-list {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include onMobile {
+      flex-direction: column;
+    }
+  }
+
+  &__images {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onMobile {
+      flex-direction: row;
+      justify-content: center;
+      gap: 8px;
+      order: 1;
+    }
+  }
+
+  &__image {
+    padding: 7px;
+    border: 1px solid var(--elements);
+    background-color: var(--background-color);
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__img-big {
+    width: 464px;
+    height: 464px;
+    object-fit: contain;
+
+    @include onTablet {
+      width: 288px;
+      height: 288px;
+    }
+  }
+
+  &__img-little {
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    object-fit: contain;
+
+    @include onTablet {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .active {
+    border-color: $main-gray;
+  }
+
+  &__img-current {
+    text-align: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__subTitle {
+    @extend %small-text;
+    color: $gray-secondary;
+
+    margin-bottom: 8px;
+  }
+
+  &__select__container {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $light-gray;
+  }
+
+  &__colors {
+    display: flex;
+    margin-bottom: 24px;
+    flex-direction: column;
+
+    &__button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--background-color);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        border: 1px solid $main-gray;
+      }
+    }
+
+    &__backGround {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+    }
+  }
+
+  &__capacity {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+
+    &__btn {
+      width: 63px;
+      height: 32px;
+      padding: 7px;
+      background-color: var(--background-color);
+      border: 1px solid var(--icons);
+      text-align: center;
+      @extend %body-text;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: $main-gray;
+        color: var(--background-color);
+      }
+
+      &-active {
+        background-color: $main-gray;
+        color: var(--background-color);
+      }
+    }
+  }
+
+  &__price-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    align-items: center;
+  }
+
+  &__price {
+    @extend %h1;
+  }
+
+  &__price-crossed {
+    font-size: 22px;
+    color: $gray-secondary;
+    text-decoration-line: line-through ;
+  }
+
+  &__button {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 32px;
+
+    &-add {
+      flex-grow: 1;
+      flex-basis: 263px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--button-cart);
+      color: var(--background-color);
+      text-align: center;
+      font-family: Mont, sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 21px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      @include onTablet {
+        flex-basis: 180px;
+      }
+
+      @include onMobile {
+        flex-basis: 231px;
+      }
+
+      &--active {
+        border: 1px solid $light-gray;
+        background-color: var(--background-color);
+        color: green;
+      }
+
+      &:hover {
+        cursor: pointer;
+        filter: brightness(130%);
+      }
+    }
+
+    &-favorite {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $icons-color;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      background-color: var(--background-color);
+
+      &:hover {
+        border: 1px solid $gray-secondary;
+      }
+    }
+  }
+
+  &__spec {
+    display: flex;
+    justify-content: space-between;
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    &__name {
+      font-family: Mont;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 21px;
+      text-align: left;
+      color: $gray-secondary;
+
+      @include onMobile {
+        font-size: 12px;
+      }
+    }
+
+    &__value {
+      font-family: Mont;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 21px;
+      text-align: right;
+      color: var(--primary);
+
+      @include onMobile {
+        font-size: 12px;
+      }
+    }
+
+    &--detailed {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 21px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      flex-direction: column;
+    }
+  }
+
+  &__heading {
+    @extend %h2;
+
+    padding-bottom: 10px;
+    border-bottom: 1px solid $light-gray;
+    margin-bottom: 32px;
+  }
+
+  &__sub-heading {
+    font-family: Mont;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25.56px;
+    text-align: left;
+
+    color: $main-gray;
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    margin-bottom: 32px;
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    color: $gray-secondary;
+    font-family: Mont, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+
+    @include onTablet {
+      width: 100%;
+    }
+  }
+
+  &__techSpecs {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import '../../utils/mixins';
+
+.main {
+  max-width: 1136px;
+  margin: 0 auto;
+
+  &__content {
+    overflow-x: hidden;
+  }
+
+  &__header {
+    font-family: Mont;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 56px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    margin-block: 56px;
+
+    @include onTablet {
+      margin-block: 32px;
+    }
+
+    @include onMobile {
+      font-size: 32px;
+      margin-block: 24px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../utils/main";
+
+.back-button {
+  display: flex;
+  align-items: center;
+  @extend %small-text;
+  background-color: var(--background-color);
+  cursor: pointer;
+  margin-bottom: 16px;
+  color: $gray-secondary;
+
+  &::before {
+    content: "";
+    background: url(../../icons/arrow-left.svg);
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    transform: translateY(-10%);
+  }
+}
+
+:root[data-theme="dark"] .back-button::before {
+  filter: grayscale(100%) invert(100%);
+}

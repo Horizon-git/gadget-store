@@ -1,0 +1,68 @@
+@import "../../utils/main";
+
+.nav {
+  &__list {
+    display: flex;
+    gap: 64px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include onTablet {
+      gap: 32px;
+    }
+
+    @include onMobile {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: $gray-secondary;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    line-height: 11px;
+
+    @include onMobile {
+      padding-bottom: 9px;
+    }
+
+    &:hover {
+      color: $main-gray;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -22px;
+      height: 3px;
+      width: 0;
+      background-color: $main-gray;
+      transition: width 0.3s ease;
+      transform-origin: left center;
+
+      @include onTablet {
+        bottom: -16px;
+      }
+
+      @include onMobile {
+        bottom: 1px;
+      }
+    }
+
+    &--active {
+      color: $main-gray;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

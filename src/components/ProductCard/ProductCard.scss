@@ -1,0 +1,129 @@
+@import "../../utils/main";
+
+.card {
+  box-sizing: border-box;
+  width: 272px;
+  padding: 32px 24px 24px;
+  transition: all .3s;
+
+  border: 1px solid $light-gray;
+
+  &:hover {
+    box-shadow: 0px 2px 15px 0px var(--shadow);
+  }
+
+  &__img {
+    display: block;
+    width: 208px;
+    height: 208px;
+    margin: 0 auto 24px;
+    object-fit: contain;
+  }
+
+  &__title {
+    height: 42px;
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    color: $main-gray;
+    text-decoration: none;
+  }
+
+  &__price {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  &__price-discount {
+    text-decoration-line: line-through;
+    color: $gray-secondary;
+  }
+
+  &__price-regular {
+    color: $main-gray;
+  }
+
+  &__specs-container {
+    padding-top: 16px;
+    margin-bottom: 16px;
+
+    border-top: 1px solid $light-gray;
+  }
+
+  &__specs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__specs-title {
+    color: $gray-secondary;
+  }
+
+  &__specs-value {
+    color: $main-gray;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  .add-to-cart {
+    width: 176px;
+    font-family: "Mont", "Times New Roman", Times, serif;
+    background-color: var(--button-cart);
+    padding-block: 10px 9px;
+    color: var(--background-color);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+
+  .add-to-cart:hover {
+    cursor: pointer;
+    filter: brightness(130%);
+  }
+
+  .add-to-cart--active {
+    border-color: $light-gray;
+    background-color: var(--background-color);
+    color: var(--green);
+  }
+
+  .favorites {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--background-color);
+    border: 1px solid $gray-secondary;
+    transition: all 0.3s;
+  }
+
+  .favorites:hover {
+    border: 1px solid $main-gray;
+    cursor: pointer;
+  }
+
+  .favorites--active {
+    border: 1px solid $light-gray;
+  }
+}

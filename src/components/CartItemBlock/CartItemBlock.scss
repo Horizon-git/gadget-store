@@ -1,0 +1,107 @@
+@import "../../utils/main";
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $light-gray;
+  margin-bottom: 16px;
+  padding: 24px;
+  transition: all .3s;
+
+  &:hover {
+    box-shadow: 0px 2px 15px 0px var(--shadow);
+  }
+
+  @include onMobile {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__count {
+    display: flex;
+    align-items: center;
+  }
+
+  &__container--right {
+    display: flex;
+    justify-content: space-between;
+    width: 230px;
+  }
+
+  &__delete {
+    background-color: transparent;
+    width: 16px;
+    height: 16px;
+    margin-right: 31px;
+    cursor: pointer;
+    transition: all .3s;
+
+    @include onMobile {
+      margin-right: 16px;
+    }
+
+    &:hover {
+      transform: scale(1.2) rotate(180deg);
+    }
+  }
+  &__image {
+    height: 66px;
+    width: 66px;
+    margin-right: 31px;
+    object-fit: contain;
+  }
+
+  &__name {
+    display: flex;
+    gap: 7px;
+    margin-right: 49px;
+
+    &__char {
+      @extend %body-text;
+      max-width: 202px;
+    }
+  }
+
+  &__action-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: 1px solid $light-gray;
+    margin-right: 13px;
+    cursor: pointer;
+    color: var(--primary);
+    transition: all .3s;
+
+    &:hover {
+      border-color: $main-gray;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      border-color: $light-gray;
+      color: $light-gray;
+    }
+  }
+
+  &__quantity {
+    color: var(-secondary);
+    @extend %body-text;
+
+    margin-right: 13px;
+  }
+
+  &__price {
+    @extend %h2;
+  }
+}

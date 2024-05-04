@@ -1,0 +1,82 @@
+@import './utils/main';
+
+@font-face {
+  font-family: "Mont";
+  src: url("fonts/Mont-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mont";
+  src: url("fonts/Mont-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Mont";
+  src: url("fonts/Mont-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@import "./utils/reset";
+@import "./utils/extend";
+
+
+body {
+  background: var(--background-color);
+  color: var(--primary);
+}
+
+iframe {
+  display: none;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+    // background-color: #0F1121;
+}
+
+body:has(.header__menu--visible) {
+  overflow: hidden;
+}
+
+.App {
+  font-family: "Mont", sans-serif;
+}
+
+.wrapper {
+  min-width: 320px;
+  margin: 0 auto;
+  min-height: calc(100vh - 243px);
+  margin-bottom: 80px;
+  padding-inline: 32px;
+  overflow-x: hidden;
+  // max-width: 1136px;
+
+  @include onTablet {
+    min-width: 592px;
+    padding-inline: 24px;
+  }
+
+  @include onMobile {
+    min-width: 288px;
+    max-width: 592px;
+    padding-inline: 16px;
+  }
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  @extend %h1;
+}

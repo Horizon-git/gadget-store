@@ -1,0 +1,20 @@
+@import "../../utils/main";
+
+.notification {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 16px;
+  margin-top: 20px;
+  width: content;
+
+  background-color: red;
+  box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.26);
+
+  &__message {
+    color: var(--background-color);
+    @extend %h2;
+    font-size: 16px;
+    text-align: center;
+  }
+}
