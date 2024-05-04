@@ -1,23 +1,31 @@
-name: Github Page Deploy Workflow
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main  # Измените на вашу основную ветку
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: "20.x"
-      - run: npm ci
-      - run: npm run build
-      - name: Deploy
-        uses: crazy-max/ghaction-github-pages@v1
+          node-version: '14'  # Укажите версию Node.js, которая используется в вашем проекте
+
+      - name: Install dependencies
+        run: npm install  # Измените на ваш способ установки зависимостей
+
+      - name: Build
+        run: npm run build  # Измените на вашу команду для сборки проекта
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          target_branch: gh-pages
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./dist  # Измените на директорию, в которой находятся файлы для деплоя
