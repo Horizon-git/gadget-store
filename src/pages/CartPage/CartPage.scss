@@ -97,15 +97,6 @@
 
   &__empty {
     margin: auto;
-    border: 1px solid $gray-secondary;
-    background-color: var(--hover);
-    border-radius: 15px;
-    padding: 30px;
-
-    &-name {
-      @extend %h1;
-
-      text-align: center;
-    }
+    width: 55%;
   }
 }

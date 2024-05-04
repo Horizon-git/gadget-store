@@ -35,7 +35,12 @@ export const CartPage: React.FC = () => {
         <BackButton />
         {cart.length <= 0 ? (
           <>
-            <Notification message="Cart is empty" />
+            {/* <Notification message="Cart is empty" /> */}
+            <img
+              src="./img/cart-is-empty.png"
+              alt="cart empty"
+              className="cart__empty"
+            />
           </>
         ) : (
           <>

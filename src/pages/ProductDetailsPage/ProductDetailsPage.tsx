@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { BackButton } from '../../components/BackButton/BackButton';
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
@@ -30,7 +30,7 @@ export const ProductDetailsPage = () => {
   const { products, loading } = useAppSelector(state => state.products);
   const { favorites } = useAppSelector(state => state.favorites);
   const { cart } = useAppSelector(state => state.cart);
-  const { productDetails, loadingDetails } = useAppSelector(
+  const { productDetails, loadingDetails, hasError } = useAppSelector(
     state => state.productDetails,
   );
 
@@ -127,8 +127,12 @@ export const ProductDetailsPage = () => {
     }
   };
 
+  if (hasError) {
+    return <Navigate to="/product-not-found" replace />;
+  }
+
   return (
-    <main className="details-page">
+    <main className="details-page main">
       {loading || loadingDetails ? (
         <Loader />
       ) : (
@@ -188,7 +192,7 @@ export const ProductDetailsPage = () => {
                               aria-label="changeColor"
                               onClick={() =>
                                 navigate(
-                                  `/${productDetails.category}/${productDetails.namespaceId}-${productDetails.capacity.toLocaleLowerCase()}-${color}`,
+                                  `/${productDetails.category}/${productDetails.namespaceId}-${productDetails.capacity.toLocaleLowerCase()}-${color.replace(' ', '-')}`,
                                 )
                               }
                               className={classNames('details__colors__button', {
@@ -215,7 +219,7 @@ export const ProductDetailsPage = () => {
                             type="button"
                             onClick={() =>
                               navigate(
-                                `/${productDetails.category}/${productDetails.namespaceId}-${cap.toLocaleLowerCase()}-${productDetails.color}`,
+                                `/${productDetails.category}/${productDetails.namespaceId}-${cap.toLocaleLowerCase()}-${productDetails.color.replace(' ', '-')}`,
                               )
                             }
                             className={classNames('details__capacity__btn', {
