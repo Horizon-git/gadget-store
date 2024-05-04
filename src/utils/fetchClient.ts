@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const BASE_URL = 'https://horizon-git.github.io/gadget-store/api/';
+
+const BASE_URL_API = 'https://horizon-git.github.io/gadget-store/api/';
 
 // a promise resolved after a given delay
 function wait(delay: number) {
@@ -28,7 +29,7 @@ function request<T>(
 
   // for a demo purpose we emulate a delay to see if Loaders work
   return wait(300)
-    .then(() => fetch(BASE_URL + url, options))
+    .then(() => fetch(BASE_URL_API + url, options))
     .then(response => {
       if (response.ok) {
         return response.json();
