@@ -16,6 +16,4 @@ if (rootElement) {
       <Root />
     </Provider>,
   );
-} else {
-  console.error('Root element with id "root" not found in the document.');
 }
