@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const BASE_URL = 'http://localhost:5173/api';
+const BASE_URL = 'https://horizon-git.github.io/gadget-store/api';
 
 // a promise resolved after a given delay
 function wait(delay: number) {
